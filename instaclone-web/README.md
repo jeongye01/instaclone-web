@@ -2,6 +2,6 @@
 
 - [x] Router
 - [x] Authentication
-- [ ] Arch.
-- [ ] Styles
-- [ ] Log in
+- [x] Arch.
+- [x] Styles
+- [ ] Log in / Sign Up
