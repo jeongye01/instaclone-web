@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import styled from "styled-components";
 import { isLoggedInVar,darkModeVar } from '../apollo';
 import {
   faFacebook,
@@ -18,47 +17,42 @@ import Separator from '../components/auth/Separator';
 import Input from '../components/auth/Input';
 import FormBox from '../components/auth/FormBox';
 import BottomBox from '../components/auth/BottomBox';
-
-
-
-
-
-const FacebookLogin = styled.div`
-  color: #385285;
-  span {
-    margin-left: 10px;
-    font-weight: 600;
-  }
+import { FatLink } from "../components/shared";
+import styled from 'styled-components';
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
-const Login=()=>{
+
+const Subtitle = styled(FatLink)`
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+`;
+
+function SignUp(){
  
   return (
     <AuthLayout>
       <FormBox>
-        <div>
+      <HeaderContainer>
           <FontAwesomeIcon icon={faInstagram} size="3x" />
-        </div>
+          <Subtitle>
+            Sign up to see photos and videos from your friends.
+          </Subtitle>
+        </HeaderContainer>
         <form>
-          <Input type="text" placeholder="" name="Username" />
-          <Input type="password" placeholder="" name="Password" />
-          <Button type="submit" value="Login"/>
+          <Input type="text" placeholder="Name" />
+          <Input type="text" placeholder="Email" />
+          <Input type="text" placeholder="Username" />
+          <Input type="password" placeholder="Password" />
+          <Button type="submit" value="Sign up" />
         </form>
-        <Separator>
-            <div></div>
-            <span>Or</span>
-            <div></div>
-        </Separator>
-        <FacebookLogin>
-          <FontAwesomeIcon icon={faFacebookSquare} />
-          <span>Log in with Facebook</span>
-        </FacebookLogin>
       </FormBox>
-      <BottomBox 
-        cta="Don't have an account?"
-        linkText="Sign up"
-        link={routes.signUp}
-      />
-    </AuthLayout> 
+      <BottomBox cta="Have an account?" linkText="Log in" link={routes.home} />
+    </AuthLayout>
+    
   );
 };
-export default Login;
+export default SignUp;

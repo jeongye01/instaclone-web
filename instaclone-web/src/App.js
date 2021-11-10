@@ -4,8 +4,10 @@ import {HashRouter as Router ,Route,Switch} from "react-router-dom";
 import { isLoggedInVar,darkModeVar } from './apollo';
 import {ThemeProvider} from "styled-components";
 import {darkTheme,lightTheme,GlobalStyles} from "./styles";
+import routes from "./routes";
 import Home  from "./screens/Home";
 import Login from "./screens/Login";
+import SignUp from "./screens/SignUp";
 import NotFound from "./screens/NotFound";
 
 
@@ -18,9 +20,15 @@ function App() {
       <GlobalStyles />
       <Router>
         <Switch>
-          <Route path="/" exact>
+          <Route path={routes.home} exact>
             {isLoggedIn? <Home /> :<Login />}
           </Route>
+          {!isLoggedIn ? (
+            <Route path={routes.signUp} exact>
+            <SignUp />
+            </Route>
+          ):null}
+          
           <Route>
             <NotFound />
           </Route>
