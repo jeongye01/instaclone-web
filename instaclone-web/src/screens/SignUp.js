@@ -35,6 +35,7 @@ function SignUp(){
  
   return (
     <AuthLayout>
+      <PageTitle title="Sign Up"/>
       <FormBox>
       <HeaderContainer>
           <FontAwesomeIcon icon={faInstagram} size="3x" />

@@ -9,13 +9,14 @@ import Home  from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import NotFound from "./screens/NotFound";
-
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   const isLoggedIn=useReactiveVar(isLoggedInVar);
   const darkMode=useReactiveVar(darkModeVar);
   console.log(darkMode);
   return(
+    <HelmetProvider>
     <ThemeProvider theme={darkMode ? darkTheme:lightTheme}>
       <GlobalStyles />
       <Router>
@@ -35,6 +36,7 @@ function App() {
         </Switch>
       </Router>
     </ThemeProvider> 
+    </HelmetProvider>
     );
 }
 
