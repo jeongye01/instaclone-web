@@ -1,7 +1,7 @@
 import {useReactiveVar} from "@apollo/client";
 import React,{useState} from "react";
 import {HashRouter as Router ,Route,Switch} from "react-router-dom";
-import { isLoggedInVar,darkModeVar } from './apollo';
+import { isLoggedInVar,darkModeVar,client } from './apollo';
 import {ThemeProvider} from "styled-components";
 import {darkTheme,lightTheme,GlobalStyles} from "./styles";
 import routes from "./routes";
@@ -10,12 +10,14 @@ import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import NotFound from "./screens/NotFound";
 import { HelmetProvider } from "react-helmet-async";
+import { ApolloProvider } from '@apollo/client';
 
 function App() {
   const isLoggedIn=useReactiveVar(isLoggedInVar);
   const darkMode=useReactiveVar(darkModeVar);
   console.log(darkMode);
   return(
+    <ApolloProvider client={client}>
     <HelmetProvider>
     <ThemeProvider theme={darkMode ? darkTheme:lightTheme}>
       <GlobalStyles />
@@ -37,6 +39,7 @@ function App() {
       </Router>
     </ThemeProvider> 
     </HelmetProvider>
+    </ApolloProvider >
     );
 }
 

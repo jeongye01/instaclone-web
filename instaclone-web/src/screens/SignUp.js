@@ -19,6 +19,7 @@ import FormBox from '../components/auth/FormBox';
 import BottomBox from '../components/auth/BottomBox';
 import { FatLink } from "../components/shared";
 import styled from 'styled-components';
+import PageTitle from "../components/PageTitle";
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
