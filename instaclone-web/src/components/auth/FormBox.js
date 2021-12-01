@@ -17,7 +17,7 @@ form {
   align-items: center;
   
   }
-}
+
 `;
 function FormBox({children}){
   return <Container>{children}</Container>;
